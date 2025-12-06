@@ -1,7 +1,13 @@
+import Grid from "./Grid";
+import PacMan from "./PacMan";
+
 const Game = () => {
   return (
-    <div className="flex-1 flex justify-center items-center">
-      <p className=" text-8xl">Hello World</p>
+    <div className="flex flex-1 items-center justify-center">
+      <div className="relative">
+        <Grid />
+        <PacMan position={{ row: 0, column: 0 }} />
+      </div>
     </div>
   );
 };
