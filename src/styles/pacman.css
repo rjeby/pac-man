@@ -1,4 +1,4 @@
-@keyframes chomp {
+@keyframes chomp-right {
   0% {
     clip-path: polygon(0% 0%, 100% 0%, 50% 50%, 100% 100%, 0% 100%);
   }
@@ -7,6 +7,45 @@
   }
 }
 
-.pacman {
-  animation: chomp 300ms ease-in-out infinite alternate;
+@keyframes chomp-left {
+  0% {
+    clip-path: polygon(0% 0%, 50% 50%, 0% 100%, 100% 100%, 100% 0%);
+  }
+  100% {
+    clip-path: polygon(100% 0%, 0% 0%, 0% 25%, 50% 50%, 0% 75%, 0% 100%, 100% 100%);
+  }
+}
+
+@keyframes chomp-up {
+  0% {
+    clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 25% 0%, 50% 50%, 75% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes chomp-down {
+  0% {
+    clip-path: polygon(0% 0%, 0% 100%, 50% 50%, 100% 100%, 100% 0%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 50% 50%, 75% 100%, 100% 100%, 100% 0%);
+  }
+}
+
+.pacman-right {
+  animation: chomp-right 300ms ease-in-out infinite alternate;
+}
+
+.pacman-left {
+  animation: chomp-left 300ms ease-in-out infinite alternate;
+}
+
+.pacman-up {
+  animation: chomp-up 300ms ease-in-out infinite alternate;
+}
+
+.pacman-down {
+  animation: chomp-down 300ms ease-in-out infinite alternate;
 }
