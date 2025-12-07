@@ -1,9 +1,11 @@
-import { useState } from "react";
-import { CELL_SIZE, COLS, INITIAL_GRID, ROWS } from "../constants";
+import { CELL_SIZE, INITIAL_GRID } from "../constants";
 import Cell from "./Cell";
 
 const Grid = () => {
-  const [grid, setGrid] = useState(INITIAL_GRID);
+  const grid = INITIAL_GRID;
+  const ROWS = grid.length;
+  const COLS = grid[0].length;
+  console.log(ROWS, COLS);
   return (
     <div
       className="grid"
@@ -12,7 +14,9 @@ const Grid = () => {
         gridTemplateColumns: `repeat(${COLS}, ${CELL_SIZE}px)`,
       }}
     >
-      {grid.map((row, rowIndex) => row.map((type, columIndex) => <Cell key={`${rowIndex}#${columIndex}`} type={type} />))}
+      {grid.map((row, rowIndex) =>
+        row.map((type, columIndex) => <Cell key={`${rowIndex}#${columIndex}`} type={type} />),
+      )}
     </div>
   );
 };
