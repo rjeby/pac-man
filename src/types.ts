@@ -11,6 +11,11 @@ export interface Player {
   direction: Direction;
 }
 
+export interface Monster {
+  position: Position;
+  type: MonsterType;
+}
+
 export interface Position {
   row: number;
   column: number;
@@ -25,10 +30,10 @@ export interface PacManProps {
 }
 
 export interface MonsterProps {
-  position: Position;
-  type: MonsterType;
+  monster: Monster;
 }
 
 export interface GameState {
   player: Player;
+  monsters: Monster[];
 }

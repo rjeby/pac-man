@@ -5,7 +5,6 @@ const Grid = () => {
   const grid = INITIAL_GRID;
   const ROWS = grid.length;
   const COLS = grid[0].length;
-  console.log(ROWS, COLS);
   return (
     <div
       className="grid"

@@ -2,12 +2,12 @@ import { CELL_SIZE, MONSTER_COLOR, MONSTER_SIZE } from "../constants";
 import type { MonsterProps } from "../types";
 import "../styles/monster.css";
 
-const Monster = ({ position, type }: MonsterProps) => {
+const Monster = ({ monster }: MonsterProps) => {
   const EYE_SIZE = MONSTER_SIZE * 0.125;
-  const color = MONSTER_COLOR[type];
+  const color = MONSTER_COLOR[monster.type];
   const offset = CELL_SIZE / 2;
-  const x = CELL_SIZE * position.column + offset;
-  const y = CELL_SIZE * position.row + offset;
+  const x = CELL_SIZE * monster.position.column + offset;
+  const y = CELL_SIZE * monster.position.row + offset;
 
   return (
     <div

@@ -1,4 +1,4 @@
-import type { GameState, GridType, MonsterType, Player } from "./types";
+import type { GameState, GridType, Monster, MonsterType, Player } from "./types";
 
 export const PACMAN_SIZE = 48;
 export const MONSTER_SIZE = 48;
@@ -11,7 +11,13 @@ export const MONSTER_COLOR: Record<MonsterType, string> = {
   green: "#80FF5A",
 };
 
-export const INITIAL_PLAYER_POSITION: Player = { position: { row: 5, column: 10 }, direction: "right" };
+export const INITIAL_PLAYER: Player = { position: { row: 5, column: 10 }, direction: "right" };
+export const INITIAL_MONSTERS: Monster[] = [
+  { position: { row: 1, column: 1 }, type: "red" },
+  { position: { row: 1, column: 19 }, type: "pink" },
+  { position: { row: 9, column: 19 }, type: "orange" },
+  { position: { row: 9, column: 1 }, type: "green" },
+];
 
 export const INITIAL_GRID: GridType = [
   [
@@ -270,5 +276,6 @@ export const INITIAL_GRID: GridType = [
 ];
 
 export const INITIAL_GAME_STATE: GameState = {
-  player: INITIAL_PLAYER_POSITION,
+  player: INITIAL_PLAYER,
+  monsters: INITIAL_MONSTERS,
 };
