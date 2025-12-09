@@ -1,8 +1,8 @@
 import { Queue } from "./queue";
 import { INITIAL_GRID } from "./constants";
-import type { Direction, GridType, Player, Position } from "./types";
+import type { Direction, GridType, Monster, Player, Position } from "./types";
 
-export const updatePlayerPosition = (player: Player, direction: Direction, grid: GridType) => {
+export const updatePlayer = (player: Player, direction: Direction, grid: GridType) => {
   const dc = direction === "right" ? 1 : direction === "left" ? -1 : 0;
   const dr = direction === "down" ? 1 : direction === "up" ? -1 : 0;
   const position = { row: player.position.row + dr, column: player.position.column + dc };
@@ -13,14 +13,13 @@ export const updatePlayerPosition = (player: Player, direction: Direction, grid:
     position.column >= grid[0].length ||
     grid[position.row][position.column] === "blocked"
   ) {
-    return player.position;
+    return { position: player.position, direction: direction };
   }
 
-  return position;
+  return { position: position, direction: direction };
 };
 
 export const djikstra = (grid: GridType) => {
-  console.log("DJIKSTRA");
   const rows = grid.length;
   const columns = grid[0].length;
   const cache = new Map<string, { distance: number; path: Position[] }>();
@@ -82,3 +81,27 @@ export const djikstra = (grid: GridType) => {
 };
 
 export const nextOptimalMove = djikstra(INITIAL_GRID);
+
+export const updateMonsters = (monsters: Monster[], player: Player) => {
+  const visited = new Set();
+  const updatedPositions: Monster[] = [];
+  for (const monster of monsters) {
+    const position = nextOptimalMove(monster.position, player.position);
+    const hash = `${position.row}#${position.column}`;
+    const updatedPosition = visited.has(hash) ? monster.position : position;
+    visited.add(`${updatedPosition.row}#${updatedPosition.column}`);
+    updatedPositions.push({ ...monster, position: updatedPosition });
+  }
+
+  return updatedPositions;
+};
+
+export const updateIsGameOver = (monsters: Monster[], player: Player) => {
+  for (const monster of monsters) {
+    if (monster.position.row === player.position.row && monster.position.column === monster.position.column) {
+      return true;
+    }
+  }
+
+  return false;
+};

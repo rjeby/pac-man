@@ -278,4 +278,6 @@ export const INITIAL_GRID: GridType = [
 export const INITIAL_GAME_STATE: GameState = {
   player: INITIAL_PLAYER,
   monsters: INITIAL_MONSTERS,
+  isGameOver: false,
+  hasGameStarted: false,
 };

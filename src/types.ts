@@ -33,7 +33,22 @@ export interface MonsterProps {
   monster: Monster;
 }
 
+export interface GameMenuProps {
+  onPlayGame: () => void;
+}
+
+export interface GameOverProps {
+  onPlayAgain: () => void;
+}
+
+export interface cleanupInfo {
+  intervalID: number;
+  handleKeyPress: (event: KeyboardEvent) => void;
+}
+
 export interface GameState {
   player: Player;
   monsters: Monster[];
+  isGameOver: boolean;
+  hasGameStarted: boolean;
 }
