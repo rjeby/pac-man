@@ -1,4 +1,4 @@
-import { Queue } from "./components/queue";
+import { Queue } from "./queue";
 import { INITIAL_GRID } from "./constants";
 import type { Direction, GridType, Player, Position } from "./types";
 
