@@ -6,6 +6,10 @@ export type Direction = "up" | "right" | "down" | "left";
 
 export type GridType = CellType[][];
 
+export interface Coin {
+  position: Position;
+}
+
 export interface Player {
   position: Position;
   direction: Direction;
@@ -33,6 +37,14 @@ export interface MonsterProps {
   monster: Monster;
 }
 
+export interface CoinProps {
+  coin: Coin;
+}
+
+export interface GameSidebarProps {
+  score: number;
+}
+
 export interface GameMenuProps {
   onPlayGame: () => void;
 }
@@ -49,6 +61,8 @@ export interface cleanupInfo {
 export interface GameState {
   player: Player;
   monsters: Monster[];
+  coins: Coin[];
+  score: number;
   isGameOver: boolean;
   hasGameStarted: boolean;
 }

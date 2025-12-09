@@ -11,7 +11,7 @@ const Monster = ({ monster }: MonsterProps) => {
 
   return (
     <div
-      className="monster absolute -translate-1/2 rounded-tl-full rounded-tr-full"
+      className="monster absolute z-30 -translate-1/2 rounded-tl-full rounded-tr-full"
       style={{ left: x, top: y, width: `${MONSTER_SIZE}px`, height: `${MONSTER_SIZE}px`, backgroundColor: color }}
     >
       <div

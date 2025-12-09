@@ -1,6 +1,6 @@
 import { Queue } from "./queue";
-import { INITIAL_GRID } from "./constants";
-import type { Direction, GridType, Monster, Player, Position } from "./types";
+import { INITIAL_GRID, SCORE_WEIGHT } from "./constants";
+import type { Coin, Direction, GridType, Monster, Player, Position } from "./types";
 
 export const updatePlayer = (player: Player, direction: Direction, grid: GridType) => {
   const dc = direction === "right" ? 1 : direction === "left" ? -1 : 0;
@@ -98,10 +98,23 @@ export const updateMonsters = (monsters: Monster[], player: Player) => {
 
 export const updateIsGameOver = (monsters: Monster[], player: Player) => {
   for (const monster of monsters) {
-    if (monster.position.row === player.position.row && monster.position.column === monster.position.column) {
+    if (monster.position.row === player.position.row && monster.position.column === player.position.column) {
       return true;
     }
   }
 
   return false;
+};
+
+export const updateCoins = (coins: Coin[], player: Player): [number, Coin[]] => {
+  const updatedCoins = [];
+  let points = 0;
+  for (const coin of coins) {
+    if (coin.position.row !== player.position.row || coin.position.column !== player.position.column) {
+      updatedCoins.push(coin);
+    } else {
+      points += SCORE_WEIGHT;
+    }
+  }
+  return [points, updatedCoins];
 };

@@ -1,8 +1,10 @@
-import type { GameState, GridType, Monster, MonsterType, Player } from "./types";
+import type { Coin, GameState, GridType, Monster, MonsterType, Player } from "./types";
 
 export const PACMAN_SIZE = 48;
 export const MONSTER_SIZE = 48;
 export const CELL_SIZE = 64;
+export const COIN_SIZE = 8;
+export const SCORE_WEIGHT = 10;
 export const MONSTER_COLOR: Record<MonsterType, string> = {
   red: "#FF3B30",
   pink: "#FF8ED6",
@@ -275,9 +277,29 @@ export const INITIAL_GRID: GridType = [
   ],
 ];
 
+export const initializeCoins = (grid: GridType, player: Player) => {
+  const rows = grid.length;
+  const columns = grid[0].length;
+  const initialPlayerPosition = player.position;
+  const coins: Coin[] = [];
+  for (let row = 0; row < rows; row++) {
+    for (let column = 0; column < columns; column++) {
+      if (
+        (initialPlayerPosition.row !== row || initialPlayerPosition.column !== column) &&
+        grid[row][column] === "open"
+      ) {
+        coins.push({ position: { row: row, column: column } });
+      }
+    }
+  }
+  return coins;
+};
+
 export const INITIAL_GAME_STATE: GameState = {
   player: INITIAL_PLAYER,
   monsters: INITIAL_MONSTERS,
+  coins: initializeCoins(INITIAL_GRID, INITIAL_PLAYER),
+  score: 0,
   isGameOver: false,
   hasGameStarted: false,
 };

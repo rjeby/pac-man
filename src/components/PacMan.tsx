@@ -10,7 +10,7 @@ const PacMan = ({ player }: PacManProps) => {
   const y = CELL_SIZE * position.row + offset;
   return (
     <div
-      className={`${direction} absolute -translate-1/2 rounded-full bg-yellow-300`}
+      className={`${direction} absolute z-20 -translate-1/2 rounded-full bg-yellow-300`}
       style={{ width: `${PACMAN_SIZE}px`, height: `${PACMAN_SIZE}px`, left: x, top: y }}
     ></div>
   );

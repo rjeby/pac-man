@@ -1,0 +1,22 @@
+@keyframes bounce {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(-15%);
+  }
+}
+
+/* @keyframes flip {
+  from {
+    transform: rotateY(45deg);
+  }
+  to {
+    transform: rotateY(-45deg);
+  }
+} */
+
+.coin {
+  /* transform: rotateY(30deg); */
+  animation: bounce 750ms ease-in-out infinite alternate;
+}
