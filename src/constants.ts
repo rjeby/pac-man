@@ -301,5 +301,6 @@ export const INITIAL_GAME_STATE: GameState = {
   coins: initializeCoins(INITIAL_GRID, INITIAL_PLAYER),
   score: 0,
   isGameOver: false,
+  hasWon: false,
   hasGameStarted: false,
 };

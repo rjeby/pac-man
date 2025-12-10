@@ -106,6 +106,10 @@ export const updateIsGameOver = (monsters: Monster[], player: Player) => {
   return false;
 };
 
+export const updateHasWon = (coins: Coin[]) => {
+  return coins.length === 0;
+};
+
 export const updateCoins = (coins: Coin[], player: Player): [number, Coin[]] => {
   const updatedCoins = [];
   let points = 0;

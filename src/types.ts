@@ -53,6 +53,10 @@ export interface GameOverProps {
   onPlayAgain: () => void;
 }
 
+export interface VictoryProps {
+  onPlayAgain: () => void;
+}
+
 export interface cleanupInfo {
   intervalID: number;
   handleKeyPress: (event: KeyboardEvent) => void;
@@ -64,5 +68,6 @@ export interface GameState {
   coins: Coin[];
   score: number;
   isGameOver: boolean;
+  hasWon: boolean;
   hasGameStarted: boolean;
 }
