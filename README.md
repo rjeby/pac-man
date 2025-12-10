@@ -1,4 +1,4 @@
-# Tetris (In Progress)
+# Tetris
 
 A simple **Pac Man clone** built with **React** ...
 
@@ -20,13 +20,24 @@ A simple **Pac Man clone** built with **React** ...
 
 ## Main Features
 
+### Start a New Game
 
-### Play and Avoid Monsters
+![Game Menu Screenshot](images/game-menu.png)
 
-![Gameplay Screenshot](images/gameplay.png)
+### Play, Score Points and Avoid Monsters
+
+![Gameplay Screenshot](images/game-play.png)
+
+### Game Over / Victory — Start Again
+
+![Game Over Screenshot](images/game-over.png)
+![Game Victory Screenshot](images/game-victory.png)
+
 
 ### Pathfinding
+
 **Pathfinding** is implemented using **Dijkstra’s algorithm**, with **cached optimal paths** used to efficiently move the monsters.
+
 
 ---
 
@@ -46,6 +57,7 @@ Install npm packages:
 ```bash
 npm install
 ```
+
 ### 3. Run the project
 
 ```bash
