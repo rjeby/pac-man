@@ -78,7 +78,6 @@ const useGame = (): [GameState, () => void, () => void] => {
   const handlePlayGame = () => {
     const intervalID = setInterval(() => {
       setGame((gm) => {
-        console.log("EVENT ", intervalID);
         const monsters = updateMonsters(gm.monsters, gm.player);
         const isGameOver = updateIsGameOver(monsters, gm.player);
 
